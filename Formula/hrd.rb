@@ -5,20 +5,20 @@
 class Hrd < Formula
   desc "Multi-repo manager for git and jj with parallel execution and live status"
   homepage "https://github.com/hugoh/hrd"
-  version "1.4.0"
+  version "1.5.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hugoh/hrd/releases/download/v1.4.0/hrd_1.4.0_darwin_amd64.tar.gz"
-      sha256 "964146c82b28c19cfff18c6c957f6f10e18719b78bcdf85fb3a79d36ec3f29bc"
+      url "https://github.com/hugoh/hrd/releases/download/v1.5.0/hrd_1.5.0_darwin_amd64.tar.gz"
+      sha256 "6a8de81f9734c21c4df215167c465f99a62aa00cd3ee55469c7e2ca8db7ad17f"
 
       define_method(:install) do
         bin.install "hrd"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hugoh/hrd/releases/download/v1.4.0/hrd_1.4.0_darwin_arm64.tar.gz"
-      sha256 "7f2d1da1c36568c206204d86b40001c55dfeee84fde1fe9a71c7dec046385fa1"
+      url "https://github.com/hugoh/hrd/releases/download/v1.5.0/hrd_1.5.0_darwin_arm64.tar.gz"
+      sha256 "df65503a4119fc15a986bcc0bd9c8b88a8f803fa613cb900172488f0cc53340e"
 
       define_method(:install) do
         bin.install "hrd"
@@ -28,22 +28,22 @@ class Hrd < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hugoh/hrd/releases/download/v1.4.0/hrd_1.4.0_linux_amd64.tar.gz"
-      sha256 "30a9350ecddaf8b228c28847bc24d5d9ee1fae02f639ab9de21936b058a2b4a7"
+      url "https://github.com/hugoh/hrd/releases/download/v1.5.0/hrd_1.5.0_linux_amd64.tar.gz"
+      sha256 "e2f8a7173c5509077f43c2d661b175f85be60dc726601db7001dda4636746ad5"
       define_method(:install) do
         bin.install "hrd"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/hugoh/hrd/releases/download/v1.4.0/hrd_1.4.0_linux_armv6.tar.gz"
-      sha256 "4a486468f836004fde932a625ca33f22967d2865b9def11f6bc07dd523a7798f"
+      url "https://github.com/hugoh/hrd/releases/download/v1.5.0/hrd_1.5.0_linux_armv6.tar.gz"
+      sha256 "d37c649c15ee51f959183f9d65ccdb686e83e0884dee00f26335805ba81adc4e"
       define_method(:install) do
         bin.install "hrd"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hugoh/hrd/releases/download/v1.4.0/hrd_1.4.0_linux_arm64.tar.gz"
-      sha256 "5ba2f64519b7de9d125dd32dd51948ad2fa40fc81d2a18cf679d2944629d2c00"
+      url "https://github.com/hugoh/hrd/releases/download/v1.5.0/hrd_1.5.0_linux_arm64.tar.gz"
+      sha256 "9c89c078c9843d6f1a524df456c94e7b222f3e53375010609a5bec9c56179de6"
       define_method(:install) do
         bin.install "hrd"
       end
