@@ -1,9 +1,9 @@
 cask "netcheck" do
-  version "0.7.0"
+  version "0.7.1"
 
   on_macos do
     on_arm do
-      sha256 "379b22da457544e5fdfba15a32ce5c2dbed08ebdb666c25f4f9412abfb6de022"
+      sha256 "d0eb25aba3f739ffb3d3a4076e7b810c72b21f6ac5eb861aa14388fe355e704b"
       url "https://github.com/hugoh/netcheck/releases/download/v#{version}/NetCheck-#{version}.zip"
     end
   end
