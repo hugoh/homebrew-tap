@@ -1,0 +1,16 @@
+amends "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Config.pkl"
+
+local linters = new Mapping<String, Step> {
+    ["brew_audit"] {
+        glob = List("Formula/*.rb", "Casks/*.rb")
+        check = "brew tap hugoh/tap-dev \"$PWD\" && brew audit --tap=hugoh/tap-dev --strict"
+    }
+}
+
+steps = linters
+
+hooks {
+    ["pre-push"] {
+        steps = linters
+    }
+}

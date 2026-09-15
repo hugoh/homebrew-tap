@@ -23,7 +23,7 @@ cask "netcheck" do
     # quarantine attribute Homebrew sets on the downloaded artifact —
     # otherwise Gatekeeper refuses to launch it as "from an unidentified
     # developer" on first open.
-    system_command "/usr/bin/xattr",
-                    args: ["-cr", "#{appdir}/NetCheck.app"]
+    run "/usr/bin/xattr",
+        args: ["-cr", "{{appdir}}/NetCheck.app"]
   end
 end
