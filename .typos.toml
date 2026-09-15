@@ -1,0 +1,3 @@
+[default.extend-words]
+# macOS release codename, used as a Homebrew Cask `depends_on macos:` symbol.
+sur = "sur"

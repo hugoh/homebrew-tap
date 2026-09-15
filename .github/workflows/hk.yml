@@ -1,0 +1,25 @@
+---
+name: hk
+
+on: # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions: {}
+
+jobs:
+  hk:
+    uses: hugoh/gh-workflows/.github/workflows/hk.yml@ae1366a14513d42c78dd993d7fbb776fda2d4530 # v1.38.6
+    permissions:
+      contents: read
+      packages: read
+      statuses: write
+    with:
+      # ubuntu-latest has no Homebrew; brew_audit in hk.pkl needs it.
+      pre-hk: |
+        command -v brew >/dev/null || NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+        BREW_PREFIX="$(command -v brew >/dev/null && brew --prefix || echo /home/linuxbrew/.linuxbrew)"
+        echo "$BREW_PREFIX/bin" >> "$GITHUB_PATH"
+        echo "$BREW_PREFIX/sbin" >> "$GITHUB_PATH"

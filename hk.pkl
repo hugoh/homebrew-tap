@@ -1,0 +1,52 @@
+amends "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.0.0/hk@2.0.0#/Builtins.pkl"
+import "package://github.com/hugoh/hk-config/releases/download/v2.0.0/hk-config@2.0.0#/base.pkl" as Base
+
+min_hk_version = Base.min_hk_version
+
+local linters = new Mapping<String, Step> {
+    ...Base.base
+    // Loads and evaluates every Formula/Cask in the tap the way `brew
+    // install` does, so a DSL mistake (e.g. a method that doesn't exist on
+    // the postflight_steps context) fails CI instead of a user's install.
+    // --except=specs: skips the "version is redundant with version scanned
+    // from URL" check, which every formula in this tap trips (each
+    // release-generator writes an explicit `version "..."` line) - a
+    // separate, tap-wide cleanup unrelated to this check's purpose.
+    ["brew_audit"] {
+        glob = List("Formula/*.rb", "Casks/*.rb")
+        // HOMEBREW_NO_REQUIRE_TAP_TRUST is deprecated in favor of `brew
+        // trust --tap`, but that needs the tap already registered to
+        // resolve its real (custom, local-path) remote - called before
+        // `brew tap`, it guesses the default https://github.com/... URL,
+        // which doesn't match once actually tapped from a local/CI
+        // checkout, and the readall check silently stays "untrusted".
+        env {
+            ["HOMEBREW_NO_REQUIRE_TAP_TRUST"] = "1"
+        }
+        check = "brew tap hugoh/tap-dev \"$PWD\" && brew audit --tap=hugoh/tap-dev --except=specs"
+    }
+}
+
+hooks {
+    ["pre-commit"] {
+        fix = true
+        stash = "git"
+        steps = linters
+    }
+    ["pre-push"] {
+        steps = linters
+    }
+    ["check"] {
+        steps = linters
+    }
+    ["fix"] {
+        fix = true
+        steps = linters
+    }
+    ["commit-msg"] {
+        steps = new Mapping<String, Step> {
+            ...Base.commit_msg
+        }
+    }
+}
