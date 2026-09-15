@@ -7,7 +7,7 @@ cask "netcheck" do
   desc "Native SwiftUI macOS network status app"
   homepage "https://github.com/hugoh/netcheck"
 
-  depends_on macos: ">= :big_sur"
+  depends_on macos: :big_sur
   depends_on arch:  :arm64
 
   livecheck do

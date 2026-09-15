@@ -15,6 +15,12 @@ local linters = new Mapping<String, Step> {
     // separate, tap-wide cleanup unrelated to this check's purpose.
     ["brew_audit"] {
         glob = List("Formula/*.rb", "Casks/*.rb")
+        // HOMEBREW_NO_REQUIRE_TAP_TRUST is deprecated in favor of `brew
+        // trust --tap`, but that needs the tap already registered to
+        // resolve its real (custom, local-path) remote - called before
+        // `brew tap`, it guesses the default https://github.com/... URL,
+        // which doesn't match once actually tapped from a local/CI
+        // checkout, and the readall check silently stays "untrusted".
         env {
             ["HOMEBREW_NO_REQUIRE_TAP_TRUST"] = "1"
         }
