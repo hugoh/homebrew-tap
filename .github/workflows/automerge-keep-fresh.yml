@@ -1,0 +1,16 @@
+---
+name: Keep auto-merge PRs fresh
+
+on: # yamllint disable-line rule:truthy
+  push:
+    branches:
+      - main
+
+permissions: {}
+
+jobs:
+  update-behind-prs:
+    uses: hugoh/gh-workflows/.github/workflows/automerge-keep-fresh.yml@30c65c10c5d685575b7c475516b635f79bd128b5 # v1.39.0
+    permissions:
+      contents: write
+      pull-requests: write
