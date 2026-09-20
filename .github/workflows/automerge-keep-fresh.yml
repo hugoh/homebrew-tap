@@ -5,12 +5,33 @@ on: # yamllint disable-line rule:truthy
   push:
     branches:
       - main
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+      - auto_merge_enabled
+  workflow_dispatch:
+
+concurrency:
+  group: automerge-keep-fresh
+  cancel-in-progress: false
 
 permissions: {}
 
 jobs:
   update-behind-prs:
-    uses: hugoh/gh-workflows/.github/workflows/automerge-keep-fresh.yml@30c65c10c5d685575b7c475516b635f79bd128b5 # v1.39.0
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
     permissions:
       contents: write
       pull-requests: write
+    steps:
+      - name: Update stale auto-merge PRs
+        uses: hugoh/gh-workflows/automerge-keep-fresh@b13f1839dfa9e6c2baf7bbcbbcee858e0f8d8175 # v1.40.0
+        with:
+          pull-request-number: ${{ github.event.pull_request.number }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
