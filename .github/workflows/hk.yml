@@ -21,3 +21,9 @@ jobs:
         BREW_PREFIX=/home/linuxbrew/.linuxbrew
         echo "$BREW_PREFIX/bin" >> "$GITHUB_PATH"
         echo "$BREW_PREFIX/sbin" >> "$GITHUB_PATH"
+      # Cache brew_audit's Homebrew API JSON download and its Ruby gem
+      # bundle (rubocop et al); both are otherwise re-fetched every run.
+      extra-cache-key-cmd: /home/linuxbrew/.linuxbrew/bin/brew --version
+      extra-cache-paths: |
+        ~/.cache/Homebrew
+        /home/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/vendor/bundle
