@@ -17,9 +17,13 @@ jobs:
       packages: read
       statuses: write
     with:
-      # ubuntu-latest has no Homebrew; brew_audit in hk.pkl needs it.
       pre-hk: |
-        command -v brew >/dev/null || NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        BREW_PREFIX="$(command -v brew >/dev/null && brew --prefix || echo /home/linuxbrew/.linuxbrew)"
+        BREW_PREFIX=/home/linuxbrew/.linuxbrew
         echo "$BREW_PREFIX/bin" >> "$GITHUB_PATH"
         echo "$BREW_PREFIX/sbin" >> "$GITHUB_PATH"
+      # Cache brew_audit's Homebrew API JSON download and its Ruby gem
+      # bundle (rubocop et al); both are otherwise re-fetched every run.
+      extra-cache-key-cmd: /home/linuxbrew/.linuxbrew/bin/brew --version
+      extra-cache-paths: |
+        ~/.cache/Homebrew
+        /home/linuxbrew/.linuxbrew/Homebrew/Library/Homebrew/vendor/bundle
