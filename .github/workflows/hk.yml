@@ -17,9 +17,17 @@ jobs:
       packages: read
       statuses: write
     with:
-      # ubuntu-latest has no Homebrew; brew_audit in hk.pkl needs it.
+      # ubuntu-latest pre-installs Homebrew but doesn't put it on PATH; brew_audit
+      # in hk.pkl needs it on PATH. Only install if it's truly missing.
       pre-hk: |
-        command -v brew >/dev/null || NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        BREW_PREFIX="$(command -v brew >/dev/null && brew --prefix || echo /home/linuxbrew/.linuxbrew)"
+        DEFAULT_BREW_PREFIX=/home/linuxbrew/.linuxbrew
+        if [ -x "$DEFAULT_BREW_PREFIX/bin/brew" ]; then
+          BREW_PREFIX="$DEFAULT_BREW_PREFIX"
+        elif command -v brew >/dev/null; then
+          BREW_PREFIX="$(brew --prefix)"
+        else
+          NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+          BREW_PREFIX="$DEFAULT_BREW_PREFIX"
+        fi
         echo "$BREW_PREFIX/bin" >> "$GITHUB_PATH"
         echo "$BREW_PREFIX/sbin" >> "$GITHUB_PATH"
