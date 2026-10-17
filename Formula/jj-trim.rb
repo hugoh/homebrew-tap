@@ -5,20 +5,20 @@
 class JjTrim < Formula
   desc "Clean up merged bookmarks and abandoned anonymous commits in jj repositories"
   homepage "https://github.com/hugoh/jj-trim"
-  version "0.4.1"
+  version "0.4.2"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hugoh/jj-trim/releases/download/v0.4.1/jj-trim_0.4.1_darwin_amd64.tar.gz"
-      sha256 "067682463f004412419e514e50c56579962224b8dad3027f140cdb7ad067dea6"
+      url "https://github.com/hugoh/jj-trim/releases/download/v0.4.2/jj-trim_0.4.2_darwin_amd64.tar.gz"
+      sha256 "f1a045f7f650072e30a716b7539cc35b1384fe4aaa53c07ac57a3a1b44e00a64"
 
       define_method(:install) do
         bin.install "jj-trim"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hugoh/jj-trim/releases/download/v0.4.1/jj-trim_0.4.1_darwin_arm64.tar.gz"
-      sha256 "f6b9057ca2c817704b0a9552201f36034b2ac86ff9b7050fc7ee9dad9ff61272"
+      url "https://github.com/hugoh/jj-trim/releases/download/v0.4.2/jj-trim_0.4.2_darwin_arm64.tar.gz"
+      sha256 "4f04e6540bc6f710ae515cae4011ca94f0063126b84c3df450d60cbe7670e396"
 
       define_method(:install) do
         bin.install "jj-trim"
@@ -28,22 +28,22 @@ class JjTrim < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hugoh/jj-trim/releases/download/v0.4.1/jj-trim_0.4.1_linux_amd64.tar.gz"
-      sha256 "15c702e7ff73c3a7796420478c251be3346e7a3a1c1b9b63410591e3d5d8784a"
+      url "https://github.com/hugoh/jj-trim/releases/download/v0.4.2/jj-trim_0.4.2_linux_amd64.tar.gz"
+      sha256 "2543e3465bdeebba65c5aa49499689eea13026a1b8d1abfad0149c11dcf5af79"
       define_method(:install) do
         bin.install "jj-trim"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/hugoh/jj-trim/releases/download/v0.4.1/jj-trim_0.4.1_linux_armv6.tar.gz"
-      sha256 "12151d10b98a5676482f6448bdcf1848642e1980e47ebe2d8fdfaacdbf9780da"
+      url "https://github.com/hugoh/jj-trim/releases/download/v0.4.2/jj-trim_0.4.2_linux_armv6.tar.gz"
+      sha256 "d6023ab248f77119243403fed80fbe2d907dcdd5707043152910500dda59ee8a"
       define_method(:install) do
         bin.install "jj-trim"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hugoh/jj-trim/releases/download/v0.4.1/jj-trim_0.4.1_linux_arm64.tar.gz"
-      sha256 "3590ccf1f8fde3f93a05e893ee9930552864685a9b6d56aaaa2cf896fb5337f3"
+      url "https://github.com/hugoh/jj-trim/releases/download/v0.4.2/jj-trim_0.4.2_linux_arm64.tar.gz"
+      sha256 "bf7f170f9e414bfc9f747419f73ffa98daa57aeb279aa759042e353e53e19e80"
       define_method(:install) do
         bin.install "jj-trim"
       end
