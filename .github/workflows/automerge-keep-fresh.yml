@@ -29,7 +29,7 @@ jobs:
       pull-requests: write
     steps:
       - name: Update stale auto-merge PRs
-        uses: hugoh/gh-workflows/automerge-keep-fresh@5e3ffc337ef532df4ff618c5d2844a09b254eaee # v1.40.10
+        uses: hugoh/gh-workflows/automerge-keep-fresh@1395fc42fd4ca42b131cc238cea3cc6ab42af4dd # v1.40.11
         with:
           pull-request-number: ${{ github.event.pull_request.number }}
         env:
