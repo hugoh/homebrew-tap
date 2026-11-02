@@ -5,20 +5,20 @@
 class Tamis < Formula
   desc "A second-opinion spam filter and mail sorter for remote mailboxes"
   homepage "https://github.com/hugoh/tamis"
-  version "0.3.1"
+  version "0.4.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hugoh/tamis/releases/download/v0.3.1/tamis_0.3.1_darwin_amd64.tar.gz"
-      sha256 "ddcaeef2837ff9b3a9360c947b8596d45b591556b0c27f5954828445093a72f1"
+      url "https://github.com/hugoh/tamis/releases/download/v0.4.0/tamis_0.4.0_darwin_amd64.tar.gz"
+      sha256 "f518b2ac9446bcd8860b49507d7827fb90c2097be4917d52089f2093f5130f9c"
 
       define_method(:install) do
         bin.install "tamis"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hugoh/tamis/releases/download/v0.3.1/tamis_0.3.1_darwin_arm64.tar.gz"
-      sha256 "f0aed168155c76bc7f1e2887ed4df28b97cf438f963946c1e65e08348af25adc"
+      url "https://github.com/hugoh/tamis/releases/download/v0.4.0/tamis_0.4.0_darwin_arm64.tar.gz"
+      sha256 "15beb89631151ec17f7a80f9e50fc8d5e852de40906f8d562c4ddf09045586ed"
 
       define_method(:install) do
         bin.install "tamis"
@@ -28,22 +28,22 @@ class Tamis < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hugoh/tamis/releases/download/v0.3.1/tamis_0.3.1_linux_amd64.tar.gz"
-      sha256 "82e57cac5561f5e5524311e1eae4d3721e7ffc96239b970a55b6427716e95dc5"
+      url "https://github.com/hugoh/tamis/releases/download/v0.4.0/tamis_0.4.0_linux_amd64.tar.gz"
+      sha256 "e6a3486830c81c67ff169c4bf2d27d025d9aa878becf9a8b29f7bb4e778ec7d5"
       define_method(:install) do
         bin.install "tamis"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/hugoh/tamis/releases/download/v0.3.1/tamis_0.3.1_linux_armv6.tar.gz"
-      sha256 "bb0f3fafd1afc5b06d1729ccb2b6e1ae56f6e8f428d5254d276639af32e03fd6"
+      url "https://github.com/hugoh/tamis/releases/download/v0.4.0/tamis_0.4.0_linux_armv6.tar.gz"
+      sha256 "cb55d395ec7ec0247c4b6378dfe39fc88c2f4c9a341bf19cfd56fd166f8553d3"
       define_method(:install) do
         bin.install "tamis"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hugoh/tamis/releases/download/v0.3.1/tamis_0.3.1_linux_arm64.tar.gz"
-      sha256 "e3d1051d0164653ba702e051297d9d3fbc1756dee953ab9d4dd187d11eedb12a"
+      url "https://github.com/hugoh/tamis/releases/download/v0.4.0/tamis_0.4.0_linux_arm64.tar.gz"
+      sha256 "3538992dcd7add45daca529edd37038c583139e5d70e254790ae22c10e16aa41"
       define_method(:install) do
         bin.install "tamis"
       end
