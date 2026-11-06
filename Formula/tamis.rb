@@ -5,19 +5,19 @@
 class Tamis < Formula
   desc "A second-opinion spam filter and mail sorter for remote mailboxes"
   homepage "https://github.com/hugoh/tamis"
-  version "0.8.0"
+  version "0.9.0"
   depends_on :linux
 
   if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-    url "https://github.com/hugoh/tamis/releases/download/v0.8.0/tamis_0.8.0_linux_amd64.tar.gz"
-    sha256 "ae9a2ea50554b880b1e6940f7cd1bccb8f71008b907d78d311cda2d24089a135"
+    url "https://github.com/hugoh/tamis/releases/download/v0.9.0/tamis_0.9.0_linux_amd64.tar.gz"
+    sha256 "786aa80e1fbbcaf3dcd8f81a05e29cc4bd84f08a875e446f056e046f0056d43b"
     define_method(:install) do
       bin.install "tamis"
     end
   end
   if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-    url "https://github.com/hugoh/tamis/releases/download/v0.8.0/tamis_0.8.0_linux_arm64.tar.gz"
-    sha256 "0911c6cf6b5e70f427f8b22a0d3e53412e7a4200ae686649c636d54ec1bbfbfb"
+    url "https://github.com/hugoh/tamis/releases/download/v0.9.0/tamis_0.9.0_linux_arm64.tar.gz"
+    sha256 "3f34326d99e1a91aa552a05f6b5415b396c2d12475e675e50175324972cb2a62"
     define_method(:install) do
       bin.install "tamis"
     end
