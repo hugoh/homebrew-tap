@@ -7,6 +7,10 @@ on: # yamllint disable-line rule:truthy
       - main
   pull_request:
 
+concurrency:
+  group: ${{ github.workflow }}-caller-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 permissions: {}
 
 jobs:
