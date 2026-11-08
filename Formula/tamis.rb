@@ -17,22 +17,22 @@ class Tamis < Formula
 
     on_arm do
       url "https://github.com/hugoh/tamis/releases/download/v0.15.0/tamis_0.15.0_darwin_arm64.tar.gz"
-      sha256 "4778ea7109af4a04ae5f50904fd4600219b309fc76ce72726850f94051d231db"
+      sha256 "87021b562b3b7c35828979710f294d9b1c530fb5f9c2bac6c882cb8f7ebcef76"
     end
     on_intel do
       url "https://github.com/hugoh/tamis/releases/download/v0.15.0/tamis_0.15.0_darwin_arm64.tar.gz"
-      sha256 "4778ea7109af4a04ae5f50904fd4600219b309fc76ce72726850f94051d231db"
+      sha256 "87021b562b3b7c35828979710f294d9b1c530fb5f9c2bac6c882cb8f7ebcef76"
     end
   end
 
   on_linux do
     on_arm do
       url "https://github.com/hugoh/tamis/releases/download/v0.15.0/tamis_0.15.0_linux_arm64.tar.gz"
-      sha256 "f156a4b366b115bef03d46d5a9a6e6f7e2df0eec4d919b8345e9ba11eacd23fc"
+      sha256 "457fe8fb3200b0cfa9a96dc48849c8f7687d55c92b085937f3a144f1a357496e"
     end
     on_intel do
       url "https://github.com/hugoh/tamis/releases/download/v0.15.0/tamis_0.15.0_linux_amd64.tar.gz"
-      sha256 "7553a3bc93615b4ee6aaccdfeb5305f6964ed5483c64698f2a61a2cf130cfdeb"
+      sha256 "c211fa673239aa32a93daff4f75a2ea6e9a4ff894f5a0b7b797aaacca72242d7"
     end
   end
 
