@@ -5,7 +5,7 @@
 class Tamis < Formula
   desc "A second-opinion spam filter and mail sorter for remote mailboxes"
   homepage "https://github.com/hugoh/tamis"
-  version "0.19.2"
+  version "0.19.3"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -16,23 +16,23 @@ class Tamis < Formula
     depends_on arch: :arm64
 
     on_arm do
-      url "https://github.com/hugoh/tamis/releases/download/v0.19.2/tamis_0.19.2_darwin_arm64.tar.gz"
-      sha256 "a7b2baccb1a24782135d06ee5494bf0097c3023e4a54c3bdfcf8e4e6de130ae3"
+      url "https://github.com/hugoh/tamis/releases/download/v0.19.3/tamis_0.19.3_darwin_arm64.tar.gz"
+      sha256 "9d79e8deec7d1fc9a23698b32b7fb7f1e9037986797dba3be32a832fe94772b3"
     end
     on_intel do
-      url "https://github.com/hugoh/tamis/releases/download/v0.19.2/tamis_0.19.2_darwin_arm64.tar.gz"
-      sha256 "a7b2baccb1a24782135d06ee5494bf0097c3023e4a54c3bdfcf8e4e6de130ae3"
+      url "https://github.com/hugoh/tamis/releases/download/v0.19.3/tamis_0.19.3_darwin_arm64.tar.gz"
+      sha256 "9d79e8deec7d1fc9a23698b32b7fb7f1e9037986797dba3be32a832fe94772b3"
     end
   end
 
   on_linux do
     on_arm do
-      url "https://github.com/hugoh/tamis/releases/download/v0.19.2/tamis_0.19.2_linux_arm64.tar.gz"
-      sha256 "0864d895c1715fd2a6ba48fa66826e2f38fcdd977526a914c07b8083defdbd59"
+      url "https://github.com/hugoh/tamis/releases/download/v0.19.3/tamis_0.19.3_linux_arm64.tar.gz"
+      sha256 "a57a7b9619ada869b125feefa5c6351297d44a888669472e6211d3d2b826f2f3"
     end
     on_intel do
-      url "https://github.com/hugoh/tamis/releases/download/v0.19.2/tamis_0.19.2_linux_amd64.tar.gz"
-      sha256 "645e2a8e872ae2bf4441728a1adf378198f9cf2641d3e281654a53354ded38d1"
+      url "https://github.com/hugoh/tamis/releases/download/v0.19.3/tamis_0.19.3_linux_amd64.tar.gz"
+      sha256 "5ecf967d28e98e9f0977aac9980f114d0c8c8f56a805ecddc69d1351b71324f5"
     end
   end
 
