@@ -5,20 +5,20 @@
 class TmhiCli < Formula
   desc "CLI for managing T-Mobile Home Internet gateway and signal monitoring"
   homepage "https://github.com/hugoh/tmhi-cli"
-  version "1.9.18"
+  version "1.9.19"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/hugoh/tmhi-cli/releases/download/v1.9.18/tmhi-cli_1.9.18_darwin_amd64.tar.gz"
-      sha256 "d7f8293ef81da54020d51d6fe6342757c763fef789749ea599e887b3974875e6"
+      url "https://github.com/hugoh/tmhi-cli/releases/download/v1.9.19/tmhi-cli_1.9.19_darwin_amd64.tar.gz"
+      sha256 "5e21c81062fae5c2c8f7bc0ed9a0d55eab4895b7881995ef84d3d2b0f3ce7793"
 
       define_method(:install) do
         bin.install "tmhi-cli"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/hugoh/tmhi-cli/releases/download/v1.9.18/tmhi-cli_1.9.18_darwin_arm64.tar.gz"
-      sha256 "c60699721cc137f0d519af33d0a2515d38cd571324d530fcfff9de928b8fd80e"
+      url "https://github.com/hugoh/tmhi-cli/releases/download/v1.9.19/tmhi-cli_1.9.19_darwin_arm64.tar.gz"
+      sha256 "b3d2cbac822e3f660e06ad1c3c888371f8f2d6aa6251538f61a232ad9dac7e0d"
 
       define_method(:install) do
         bin.install "tmhi-cli"
@@ -28,22 +28,22 @@ class TmhiCli < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hugoh/tmhi-cli/releases/download/v1.9.18/tmhi-cli_1.9.18_linux_amd64.tar.gz"
-      sha256 "5ef69797705429e0b906f6f3a987bdb2e3d4cc1e3f6b159c2e6d4b0888427189"
+      url "https://github.com/hugoh/tmhi-cli/releases/download/v1.9.19/tmhi-cli_1.9.19_linux_amd64.tar.gz"
+      sha256 "19634e8235b42591fb723e2353e8fffeb3b74f98ea1148eeab54ceea3e003d41"
       define_method(:install) do
         bin.install "tmhi-cli"
       end
     end
     if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/hugoh/tmhi-cli/releases/download/v1.9.18/tmhi-cli_1.9.18_linux_armv6.tar.gz"
-      sha256 "77d515fd964a7cf8b413f4cd8a8d81b24f7babf7ae89969dcd00f4f536024a8a"
+      url "https://github.com/hugoh/tmhi-cli/releases/download/v1.9.19/tmhi-cli_1.9.19_linux_armv6.tar.gz"
+      sha256 "c9f0079b9d75333c123a25faa27ded56aad2dd611312e658968506d96ff1c608"
       define_method(:install) do
         bin.install "tmhi-cli"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/hugoh/tmhi-cli/releases/download/v1.9.18/tmhi-cli_1.9.18_linux_arm64.tar.gz"
-      sha256 "1a5ab7891d2ea199c59b584dbf3fc92f1fa7b20ec3e2ec6c67e662718e708321"
+      url "https://github.com/hugoh/tmhi-cli/releases/download/v1.9.19/tmhi-cli_1.9.19_linux_arm64.tar.gz"
+      sha256 "d993e22fef67f6f75d4af48ee410ce43397681ff6bc1c2920b96c88e71c3c8cb"
       define_method(:install) do
         bin.install "tmhi-cli"
       end
