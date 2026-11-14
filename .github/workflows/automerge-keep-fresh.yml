@@ -24,14 +24,21 @@ jobs:
   update-behind-prs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    permissions:
-      contents: write
-      pull-requests: write
+    permissions: {}
     steps:
+      # An app token, not GITHUB_TOKEN, so branch updates trigger the required CI checks.
+      - uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
+        id: app-token
+        with:
+          client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
+          private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
+          permission-contents: write
+          permission-pull-requests: write
+          permission-workflows: write
       - name: Update stale auto-merge PRs
         uses: hugoh/gh-workflows/automerge-keep-fresh@e16fb522310fbdff89aab38e3d16d13ee5cff11e # v1.40.20
         with:
           pull-request-number: ${{ github.event.pull_request.number }}
         env:
-          GH_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           GH_REPO: ${{ github.repository }}
