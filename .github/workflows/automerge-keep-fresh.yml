@@ -12,6 +12,8 @@ on: # yamllint disable-line rule:truthy
       - synchronize
       - ready_for_review
       - auto_merge_enabled
+  # Required check: must report on merge queue branches, where there is nothing to update.
+  merge_group:
   workflow_dispatch:
 
 concurrency:
@@ -29,6 +31,7 @@ jobs:
       # An app token, not GITHUB_TOKEN, so branch updates trigger the required CI checks.
       - uses: actions/create-github-app-token@64ab729a6294000f5aa4a4bc0b73d1f32bc45510 # v3.3.0
         id: app-token
+        if: github.event_name != 'merge_group'
         with:
           client-id: ${{ vars.RELEASE_APP_CLIENT_ID }}
           private-key: ${{ secrets.RELEASE_APP_PRIVATE_KEY }}
@@ -36,6 +39,7 @@ jobs:
           permission-pull-requests: write
           permission-workflows: write
       - name: Update stale auto-merge PRs
+        if: github.event_name != 'merge_group'
         uses: hugoh/gh-workflows/automerge-keep-fresh@ae6e1b2ce64760b5418b71668bb9b0a74a3c4c70 # v1.40.22
         with:
           pull-request-number: ${{ github.event.pull_request.number }}

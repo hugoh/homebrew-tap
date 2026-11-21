@@ -6,6 +6,7 @@ on: # yamllint disable-line rule:truthy
     branches:
       - main
   pull_request:
+  merge_group:
 
 concurrency:
   group: ${{ github.workflow }}-caller-${{ github.event.pull_request.number || github.ref }}
