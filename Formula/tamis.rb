@@ -16,12 +16,12 @@ class Tamis < Formula
     depends_on arch: :arm64
 
     on_arm do
-      url "https://github.com/hugoh/tamis/releases/download/v0.24.3/tamis_0.24.3_darwin_arm64.tar.gz"
-      sha256 "7444b3b259518e4c9996bba899bd3e8457bfd8025b55d5e9bdf582c2a2c69287"
+      url "https://github.com/hugoh/tamis/archive/refs/tags/v0.24.4.tar.gz"
+      sha256 "d3a833b22adb2810753c3f0c201d553da2ee9c1f318b19788bc9808a27c743e6"
     end
     on_intel do
-      url "https://github.com/hugoh/tamis/releases/download/v0.24.3/tamis_0.24.3_darwin_arm64.tar.gz"
-      sha256 "7444b3b259518e4c9996bba899bd3e8457bfd8025b55d5e9bdf582c2a2c69287"
+      url "https://github.com/hugoh/tamis/archive/refs/tags/v0.24.4.tar.gz"
+      sha256 "d3a833b22adb2810753c3f0c201d553da2ee9c1f318b19788bc9808a27c743e6"
     end
   end
 
