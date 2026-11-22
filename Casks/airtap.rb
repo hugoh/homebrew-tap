@@ -1,6 +1,6 @@
 cask "airtap" do
-  version "0.3.0"
-  sha256 "0f2e8d1bbd7a0214571cebf243fa80695ca456080e5a99fc8cbce447d21e1bfb"
+  version "0.4.0"
+  sha256 "3984c8a10613c0e8332a32652b3d408fdacae65f51867db247e08a5820704ed3"
 
   url "https://github.com/hugoh/airtap/releases/download/v#{version}/Airtap-#{version}.zip"
   name "Airtap"
